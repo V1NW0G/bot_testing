@@ -55,18 +55,6 @@
       ]
     },
     {
-      "tag": "delivery",
-      "patterns": [
-        "How long does delivery take?",
-        "How long does shipping take?",
-        "When do I get my delivery?"
-      ],
-      "responses": [
-        "Delivery takes 2-4 days",
-        "Shipping takes 2-4 days"
-      ]
-    },
-    {
       "tag": "funny",
       "patterns": [
         "Tell me a joke!",
