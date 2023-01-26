@@ -1,9 +1,6 @@
 import random
 import json
-import asyncio
-
 import torch
-
 from model import NeuralNet
 from nltk_utils import bag_of_words, tokenize
 
@@ -56,7 +53,7 @@ print(f"I'm {bot_name}. Let's chat! (type 'quit' to exit)")
 def chatfunc(message):
     sentence = message
     # if sentence == "quit":
-    #     break
+    #     exit()
 
     sentence = tokenize(sentence)
     X = bag_of_words(sentence, all_words)
@@ -73,9 +70,9 @@ def chatfunc(message):
     if prob.item() > 0.75:
         for intent in intents['intents']:
             if tag == intent["tag"]:
-                reply = (f"{bot_name}: {random.choice(intent['responses'])}")
+                reply = (f"{random.choice(intent['responses'])}")
                 return reply
     else:
-        reply = (f"{bot_name}: I do not understand...")
+        reply = (f"I do not understand...")
         return reply
 
