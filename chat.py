@@ -1,5 +1,6 @@
 import random
 import json
+import asyncio
 
 import torch
 
@@ -27,11 +28,35 @@ model.eval()
 
 bot_name = "Sam"
 print(f"I'm {bot_name}. Let's chat! (type 'quit' to exit)")
-while True:
-    # sentence = "do you use credit cards?"
-    sentence = input("You: ")
-    if sentence == "quit":
-        break
+# while True:
+#
+#     sentence = input("You: ")
+#     if sentence == "quit":
+#         break
+#
+#     sentence = tokenize(sentence)
+#     X = bag_of_words(sentence, all_words)
+#     X = X.reshape(1, X.shape[0])
+#     X = torch.from_numpy(X).to(device)
+#
+#     output = model(X)
+#     _, predicted = torch.max(output, dim=1)
+#
+#     tag = tags[predicted.item()]
+#
+#     probs = torch.softmax(output, dim=1)
+#     prob = probs[0][predicted.item()]
+#     if prob.item() > 0.75:
+#         for intent in intents['intents']:
+#             if tag == intent["tag"]:
+#                 print(f"{bot_name}: {random.choice(intent['responses'])}")
+#     else:
+#         print(f"{bot_name}: I do not understand...")
+
+def chatfunc(message):
+    sentence = message
+    # if sentence == "quit":
+    #     break
 
     sentence = tokenize(sentence)
     X = bag_of_words(sentence, all_words)
@@ -48,6 +73,9 @@ while True:
     if prob.item() > 0.75:
         for intent in intents['intents']:
             if tag == intent["tag"]:
-                print(f"{bot_name}: {random.choice(intent['responses'])}")
+                reply = (f"{bot_name}: {random.choice(intent['responses'])}")
+                return reply
     else:
-        print(f"{bot_name}: I do not understand...")
+        reply = (f"{bot_name}: I do not understand...")
+        return reply
+

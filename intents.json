@@ -51,7 +51,7 @@
       ],
       "responses": [
         "I can answer you some question about family and firendship",
-        "I am {bot name}, I am here to help you"
+        "I am Sam, I am here to help you"
       ]
     },
     {
@@ -62,20 +62,20 @@
         "Do you know a joke?"
       ],
       "responses": [
-        "Why did the hipster burn his mouth? He drank the coffee before it was cool.",
-        "What did the buffalo say when his son left for college? Bison."
+        "No joke",
+        "No joke"
       ]
     },
     {
-      "tag": "fuck",
+      "tag": "bad",
       "patterns": [
         "Fuck you ",
         "I hate you ",
         "Shame on you?"
       ],
       "responses": [
-        "Fuck You Too",
-        "Damm son"
+        "You should not say that",
+        "..."
       ]
     }
   ]
