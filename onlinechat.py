@@ -3,9 +3,12 @@ import os
 
 import chat
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
+from dotenv import load_dotenv
+
+load_dotenv()
 sia = SentimentIntensityAnalyzer()
 
-token = "5960383239:AAEvPLli6OVjGDTVrQ9VpURYVz7zjGO0pfw"
+token = os.getenv('TGTOKEN')
 bot = telebot.TeleBot(token)
 
 user_dict = {}
