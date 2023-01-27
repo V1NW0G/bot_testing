@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="17b5601e-da19-46a3-a96e-d44242b071df" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/azuretranslation.py" beforeDir="false" afterPath="$PROJECT_DIR$/azuretranslation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/onlinechat.py" beforeDir="false" afterPath="$PROJECT_DIR$/onlinechat.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +64,7 @@
       <updated>1674628777597</updated>
       <workItem from="1674628789846" duration="71000" />
       <workItem from="1674628901310" duration="23763000" />
-      <workItem from="1674789794988" duration="7468000" />
+      <workItem from="1674789794988" duration="13267000" />
     </task>
     <servers />
   </component>

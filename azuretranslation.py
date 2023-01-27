@@ -2,20 +2,18 @@ import requests, uuid, json
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
+def engtochi(input):
+    load_dotenv()
 
-# Add your key and endpoint
-key = os.getenv('AZURE_KEY')
-endpoint = os.getenv('ENDPOINT')
+    key = os.getenv('AZURE_KEY')
+    endpoint = os.getenv('ENDPOINT')
+    location = os.getenv('LOCATION')
 
-# location, also known as region.
-# required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
-location = os.getenv('LOCATION')
+    path = '/translate'
+    constructed_url = endpoint + path
 
-path = '/translate'
-constructed_url = endpoint + path
+    translate_text = input
 
-def engtochi():
     params = {
         'api-version': '3.0',
         'from': 'en',
@@ -31,10 +29,8 @@ def engtochi():
     }
 
     # You can pass more than one object in body.
-    body = [{
-        'text': 'my exam is poor, i want to die. Please visit https://learn.microsoft.com/zh-tw/azure/cognitive-services/translator/dynamic-dictionary',
-}]
-
+    body = [{'text': translate_text,}]
+    print(body)
     request = requests.post(constructed_url, params=params, headers=headers, json=body)
     response = request.json()
 
@@ -43,9 +39,21 @@ def engtochi():
     start = ' "text": "'
     end = '",'
 
-    print(output[output.find(start) + len(start):output.rfind(end)])
+    translated_text = output[output.find(start) + len(start):output.rfind(end)]
+    return translated_text
 
-def chitoeng():
+def chitoeng(input):
+    load_dotenv()
+
+    key = os.getenv('AZURE_KEY')
+    endpoint = os.getenv('ENDPOINT')
+    location = os.getenv('LOCATION')
+
+    path = '/translate'
+    constructed_url = endpoint + path
+
+    translate_text = input
+
     params = {
         'api-version': '3.0',
         'from': 'yue',
@@ -61,9 +69,7 @@ def chitoeng():
     }
 
     # You can pass more than one object in body.
-    body = [{
-        'text': 'my exam is poor, i want to die. Please visit https://learn.microsoft.com/zh-tw/azure/cognitive-services/translator/dynamic-dictionary'
-    }]
+    body = [{'text': translate_text}]
 
     request = requests.post(constructed_url, params=params, headers=headers, json=body)
     response = request.json()
@@ -73,7 +79,6 @@ def chitoeng():
     start = ' "text": "'
     end = '",'
 
-    print(output[output.find(start)+len(start):output.rfind(end)])
+    translated_text = output[output.find(start) + len(start):output.rfind(end)]
+    return translated_text
 
-engtochi()
-chitoeng()
