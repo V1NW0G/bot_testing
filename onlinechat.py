@@ -22,17 +22,14 @@ def send_welcome(message):
     msg = bot.reply_to(message, """\
     What's your name?
 """)
-    bot.register_next_step_handler(msg, process_name_step)
+    bot.register_next_step_handler(msg, getusername)
 
-def process_name_step(message):
+def getusername(message):
     try:
         chat_id = message.chat.id
         name = message.text
         user = User(name)
-        print(user)
         user_dict[chat_id] = user
-        print(message.text)
-        print(message)
         bot.send_message(chat_id, 'Nice to meet you ' + user.name)
         next = bot.send_message(chat_id, user.name + ' You may ask me some questions')
         bot.register_next_step_handler(next, converstion)
@@ -48,7 +45,6 @@ def converstion(message):
         user_dict[chat_id] = user
         recieve_msg = message.text
         print(f"[{message.text}] sentiment score:{sia.polarity_scores(message.text)}")
-
         sentimentscore(chat_id,message)
         if not ("finish" or "end") in message.text:
             output = chat.chatfunc(recieve_msg)
@@ -63,6 +59,8 @@ def converstion(message):
         print(e)
 
 def sentimentscore(chat_id,message):
-    bot.send_message(chat_id=os.getenv('ADMINID'), text=f"{chat_id} mentions:[{message.text}] \n sentiment score:{sia.polarity_scores(message.text)}")
+    sentimentsc = sia.polarity_scores(message.text)
+    if(sentimentsc['compound'] < -0.3):
+        bot.send_message(chat_id=os.getenv('ADMINID'), text=f"Alert!\n{chat_id} mentions:[{message.text}] \nsentiment score:{sentimentsc}")
 
 bot.polling()

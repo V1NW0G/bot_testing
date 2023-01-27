@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="17b5601e-da19-46a3-a96e-d44242b071df" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/onlinechat.py" beforeDir="false" afterPath="$PROJECT_DIR$/onlinechat.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,12 +23,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/vincentwong/PycharmProjects/FYP"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/vincentwong/PycharmProjects/FYP&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="FYP" />
@@ -61,7 +63,8 @@
       <option name="presentableId" value="Default" />
       <updated>1674628777597</updated>
       <workItem from="1674628789846" duration="71000" />
-      <workItem from="1674628901310" duration="23677000" />
+      <workItem from="1674628901310" duration="23763000" />
+      <workItem from="1674789794988" duration="7468000" />
     </task>
     <servers />
   </component>
