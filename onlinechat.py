@@ -48,7 +48,8 @@ def converstion(message):
         user_dict[chat_id] = user
         recieve_msg = message.text
         print(f"[{message.text}] sentiment score:{sia.polarity_scores(message.text)}")
-        bot.send_message(chat_id=os.getenv('ADMINID'), text=f"{chat_id} mentions:[{message.text}] \n sentiment score:{sia.polarity_scores(message.text)}")
+
+        sentimentscore(chat_id,message)
         if not ("finish" or "end") in message.text:
             output = chat.chatfunc(recieve_msg)
             next = bot.send_message(chat_id, output)
@@ -61,7 +62,7 @@ def converstion(message):
         bot.reply_to(message, 'oooops')
         print(e)
 
-def sentimentscore():
-    bot.send_message(chat_id=os.getenv('ADMINID'), text='USP-Python has started up!')
+def sentimentscore(chat_id,message):
+    bot.send_message(chat_id=os.getenv('ADMINID'), text=f"{chat_id} mentions:[{message.text}] \n sentiment score:{sia.polarity_scores(message.text)}")
 
 bot.polling()
