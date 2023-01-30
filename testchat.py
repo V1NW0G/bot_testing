@@ -1,7 +1,7 @@
 import azuretranslation
 import chat
 
-testdata = ['如何計劃學習計畫','家庭衝突問題如何解決']
+testdata = ['誰創造你','家庭衝突問題如何解決']
 
 for i in testdata:
     recieve_msg = azuretranslation.chitoeng(i)

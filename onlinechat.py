@@ -3,9 +3,10 @@ import os
 
 import azuretranslation
 import chat
-
+import time
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from dotenv import load_dotenv
+
 
 load_dotenv()
 sia = SentimentIntensityAnalyzer()
@@ -47,9 +48,10 @@ def converstion(message):
         user = User(name)
         user_dict[chat_id] = user
         recieve_msg = azuretranslation.chitoeng(message.text)
-        print(f"[{message.text}] sentiment score:{sia.polarity_scores(recieve_msg)}")
+        print(f"[{message.text}] {recieve_msg} \nsentiment score:{sia.polarity_scores(recieve_msg)}")
         sentimentscore(chat_id,recieve_msg)
         bot.send_chat_action(chat_id, action='typing')
+        time.sleep(1)
         if not ("finish" or "end") in message.text:
             tochi = chat.chatfunc(recieve_msg)
             output = azuretranslation.engtochi(tochi)

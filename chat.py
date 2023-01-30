@@ -19,6 +19,7 @@ all_words = data['all_words']
 tags = data['tags']
 model_state = data["model_state"]
 
+# model = RNN(input_size, hidden_size, output_size).to(device)
 model = NeuralNet(input_size, hidden_size, output_size).to(device)
 model.load_state_dict(model_state)
 model.eval()
@@ -74,5 +75,6 @@ def chatfunc(message):
                 return reply
     else:
         reply = (f"I do not understand...")
+        print(f"add: {message}")
         return reply
 
