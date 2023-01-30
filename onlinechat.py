@@ -23,7 +23,7 @@ class User:
 def send_welcome(message):
     msg = bot.reply_to(message, """\
     What's your name?
-""")
+    """)
     bot.register_next_step_handler(msg, getusername)
 
 def getusername(message):
@@ -41,13 +41,14 @@ def getusername(message):
 
 def converstion(message):
     try:
+        # print(message)
         chat_id = message.chat.id
         name = message.text
         user = User(name)
         user_dict[chat_id] = user
         recieve_msg = azuretranslation.chitoeng(message.text)
-        print(f"[{message.text}] sentiment score:{sia.polarity_scores(message.text)}")
-        sentimentscore(chat_id,message)
+        print(f"[{message.text}] sentiment score:{sia.polarity_scores(recieve_msg)}")
+        sentimentscore(chat_id,recieve_msg)
         if not ("finish" or "end") in message.text:
             tochi = chat.chatfunc(recieve_msg)
             output = azuretranslation.engtochi(tochi)
@@ -62,9 +63,12 @@ def converstion(message):
         print(e)
 
 def sentimentscore(chat_id,message):
-    sentimentsc = sia.polarity_scores(message.text)
+    sentimentsc = sia.polarity_scores(message)
     if(sentimentsc['compound'] < -0.3):
-        bot.send_message(chat_id=os.getenv('ADMINID'), text=f"Alert!\n{chat_id} mentions:[{message.text}] \nsentiment score:{sentimentsc}")
+        bot.send_message(chat_id=os.getenv('ADMINID'),
+        text=f"Alert!\n{chat_id} mentions:[{message}] \nsentiment score:{sentimentsc}")
+
+
 
 
 # def converstion(message):
