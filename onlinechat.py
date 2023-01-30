@@ -49,6 +49,7 @@ def converstion(message):
         recieve_msg = azuretranslation.chitoeng(message.text)
         print(f"[{message.text}] sentiment score:{sia.polarity_scores(recieve_msg)}")
         sentimentscore(chat_id,recieve_msg)
+        bot.send_chat_action(chat_id, action='typing')
         if not ("finish" or "end") in message.text:
             tochi = chat.chatfunc(recieve_msg)
             output = azuretranslation.engtochi(tochi)
