@@ -1,6 +1,8 @@
 import random
 import json
 import torch
+
+import chat
 from model import NeuralNet
 from nltk_utils import bag_of_words, tokenize
 
@@ -26,6 +28,8 @@ model.eval()
 
 bot_name = "CanChat"
 print(f"Chatbot is running...")
+
+last_intent = ""
 # while True:
 #
 #     sentence = input("You: ")
@@ -65,16 +69,22 @@ def chatfunc(message):
     _, predicted = torch.max(output, dim=1)
 
     tag = tags[predicted.item()]
+    print(tag)
 
     probs = torch.softmax(output, dim=1)
     prob = probs[0][predicted.item()]
     if prob.item() > 0.75:
         for intent in intents['intents']:
+            # add tag == moreinfo
+
             if tag == intent["tag"]:
+                chat.last_intent = tag
                 reply = (f"{random.choice(intent['responses'])}")
                 return reply
     else:
-        reply = (f"I do not understand...")
+        reply = (f"I do not understand... "
+                 f"Seems we were talking about {last_intent} just now.Is this what you are asking?")
         print(f"add: {message}")
         return reply
+
 
