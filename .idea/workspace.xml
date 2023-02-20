@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17b5601e-da19-46a3-a96e-d44242b071df" name="Changes" comment="update data">
-      <change afterPath="$PROJECT_DIR$/testingfea.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data.pth" beforeDir="false" afterPath="$PROJECT_DIR$/data.pth" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/onlinechat.py" beforeDir="false" afterPath="$PROJECT_DIR$/onlinechat.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testchat.py" beforeDir="false" afterPath="$PROJECT_DIR$/testchat.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +81,7 @@
       <workItem from="1675395303632" duration="287000" />
       <workItem from="1675404443491" duration="3706000" />
       <workItem from="1675792044278" duration="8036000" />
+      <workItem from="1676884790976" duration="1314000" />
     </task>
     <task id="LOCAL-00001" summary="update data">
       <created>1675070251581</created>

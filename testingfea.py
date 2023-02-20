@@ -14,5 +14,5 @@ def generate_text(prompt):
     )
     return response["choices"][0]["text"].strip()
 
-generated_text = generate_text("What can I do if my parents beat me up?")
+generated_text = generate_text("What can I do if my parents fuck me up?")
 print(generated_text)
