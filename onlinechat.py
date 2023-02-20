@@ -51,10 +51,12 @@ def converstion(message):
         print(f"[{message.text}] {recieve_msg} \nsentiment score:{sia.polarity_scores(recieve_msg)}")
         sentimentscore(chat_id,recieve_msg)
         bot.send_chat_action(chat_id, action='typing')
-        time.sleep(1)
+
         if not ("finish" or "end") in message.text:
             tochi = chat.chatfunc(recieve_msg)
             output = azuretranslation.engtochi(tochi)
+            # print(len(output))
+            time.sleep(len(output)/8)
             next = bot.send_message(chat_id, output)
             bot.register_next_step_handler(next, converstion)
         else:
